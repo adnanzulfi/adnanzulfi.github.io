@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adnan Mohammad | Mechanical Design Engineer</title>
+  <meta name="description" content="Adnan Mohammad: mechanical and CAD design engineer. SolidWorks, AutoCAD, GD&T (ASME Y14.5), AS9100. Open to full-time and freelance work.">
+  <meta property="og:title" content="Adnan Mohammad | Mechanical Design Engineer">
+  <meta property="og:description" content="Precision CAD design built to standard: SolidWorks, AutoCAD, GD&T, AS9100.">
+  <meta name="theme-color" content="#0a0c14">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preload" as="image" href="blueprint-bg.webp" type="image/webp">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Roboto:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= NAV (hides on scroll down, returns on scroll up) ================= -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav-logo" aria-label="Back to top"><img src="logo.png" alt="Adnan Mohammad logo" width="54" height="37"><span class="nav-name">ADNAN<span>.</span>M</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#assembly">Assembly</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#process">Process</a>
+      <a href="#industries">Industries</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="resume.pdf" class="nav-cta" target="_blank" rel="noopener">Résumé</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </header>
+
+  <main id="top">
+
+    <!-- ================= 1. HERO ================= -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" id="heroBg" aria-hidden="true"></div>
+      <canvas class="hero-grid" id="heroGrid" aria-hidden="true"></canvas>
+      <div class="hero-inner">
+        <p class="eyebrow" data-hero>Open to full-time &amp; freelance &nbsp;·&nbsp; Willing to relocate nationwide</p>
+        <h1 class="hero-value" data-hero>
+          Where <em>Design Precision</em><br>
+          Meets Engineering Integrity&nbsp;—<br>
+          And I Engineer It Right.
+        </h1>
+        <p class="hero-name" data-hero>Adnan Mohammad</p>
+        <p class="hero-title" data-hero>Mechanical Design Engineer</p>
+        <div class="chips" data-hero>
+          <span class="chip">SolidWorks</span>
+          <span class="chip">AutoCAD</span>
+          <span class="chip">GD&amp;T · ASME Y14.5</span>
+          <span class="chip">AS9100 · ISO 9001</span>
+          <span class="chip">CMM · PC-DMIS</span>
+          <span class="chip">Sheet Metal &amp; Weldments</span>
+        </div>
+        <div class="hero-ctas" data-hero>
+          <a href="resume.pdf" class="btn btn-gold" target="_blank" rel="noopener">Download Résumé (PDF)</a>
+          <a href="#assembly" class="btn btn-ghost">See my work ↓</a>
+        </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"><span></span></div>
+    </section>
+
+    <!-- ================= 2. CREDENTIALS MARQUEE ================= -->
+    <section class="marquee" aria-label="Credentials">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span>BS Biomedical Engineering · Wichita State</span><i>◆</i>
+          <span>SolidWorks</span><i>◆</i>
+          <span>AutoCAD</span><i>◆</i>
+          <span>GD&amp;T · ASME Y14.5</span><i>◆</i>
+          <span>AS9100</span><i>◆</i>
+          <span>ISO 9001</span><i>◆</i>
+          <span>First Article Inspection · AS9102</span><i>◆</i>
+          <span>CMM · PC-DMIS</span><i>◆</i>
+          <span>Design for Manufacturability</span><i>◆</i>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+          <span>BS Biomedical Engineering · Wichita State</span><i>◆</i>
+          <span>SolidWorks</span><i>◆</i>
+          <span>AutoCAD</span><i>◆</i>
+          <span>GD&amp;T · ASME Y14.5</span><i>◆</i>
+          <span>AS9100</span><i>◆</i>
+          <span>ISO 9001</span><i>◆</i>
+          <span>First Article Inspection · AS9102</span><i>◆</i>
+          <span>CMM · PC-DMIS</span><i>◆</i>
+          <span>Design for Manufacturability</span><i>◆</i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 3. EXPLODED ASSEMBLY (pinned, scroll-scrubbed) ================= -->
+    <!-- DEMO MODEL: a pillow-block bearing built in code. Swap for your own SolidWorks export later. -->
+    <section class="assembly" id="assembly">
+      <div class="assembly-stage">
+        <canvas id="assemblyCanvas" aria-label="3D exploded view of a pillow block bearing assembly"></canvas>
+
+        <div class="assembly-copy">
+          <p class="label">Featured Assembly · Demo Model</p>
+          <h2 class="assembly-title">Pillow Block<br>Bearing Assembly</h2>
+          <p class="assembly-state" id="assemblyState">Assembled</p>
+          <div class="progress"><span id="assemblyBar"></span></div>
+          <p class="assembly-hint">Scroll to explode ↓</p>
+        </div>
+
+        <aside class="bom" id="bom" aria-label="Bill of materials">
+          <p class="label">Bill of Materials</p>
+          <table>
+            <thead><tr><th>Item</th><th>Part</th><th>Qty</th></tr></thead>
+            <tbody>
+              <tr data-part="0"><td>1</td><td>Housing, cast</td><td>1</td></tr>
+              <tr data-part="1"><td>2</td><td>Shaft, Ø20</td><td>1</td></tr>
+              <tr data-part="2"><td>3</td><td>Outer race</td><td>1</td></tr>
+              <tr data-part="3"><td>4</td><td>Ball set</td><td>10</td></tr>
+              <tr data-part="4"><td>5</td><td>Inner race</td><td>1</td></tr>
+              <tr data-part="5"><td>6</td><td>End cap, front</td><td>1</td></tr>
+              <tr data-part="6"><td>7</td><td>End cap, rear</td><td>1</td></tr>
+              <tr data-part="7"><td>8</td><td>Socket head cap screw</td><td>4</td></tr>
+              <tr data-part="8"><td>9</td><td>Hex bolt, mounting</td><td>2</td></tr>
+            </tbody>
+          </table>
+        </aside>
+
+        <p class="assembly-fallback" id="assemblyFallback" hidden>3D view needs WebGL. Try a newer browser to see the exploded assembly.</p>
+      </div>
+    </section>
+
+    <!-- ================= 4. ABOUT ME (headline reveals word-by-word) ================= -->
+    <section class="statement" id="about">
+      <p class="label" data-reveal>About Me</p>
+      <p class="statement-text" id="statementText">
+        I turn engineering requirements into precise, manufacturable CAD — parts built to pass inspection the first time.
+      </p>
+      <div class="about-body">
+        <p data-reveal>My edge comes from an unusual background: before I designed parts, I spent years inspecting them. Working inside <strong>AS9100</strong> and <strong>ISO 9001</strong> standards, running CMM inspections, and checking GD&amp;T on components with zero margin for error, I learned exactly where designs fail — the tolerance that won't hold, the feature that can't be machined, the drawing that doesn't survive the floor.</p>
+        <p data-reveal>Now I design with that knowledge built in. Across <strong>SolidWorks</strong> and <strong>AutoCAD</strong>, I model sheet metal, weldments, assemblies, and full drawing packages — work that began with rehabilitation exoskeletons and a Class I surgical device in university, and has grown into a portfolio I build on every week.</p>
+        <p data-reveal>Grounded in a <strong>Biomedical Engineering</strong> degree and real manufacturing experience, I bring something most designers can't: I understand both sides of the drawing. My goal is to grow into a CAD and mechanical design engineer who drives innovation — one precise design at a time.</p>
+      </div>
+    </section>
+
+    <!-- ================= 5. PROJECTS ================= -->
+    <section class="section" id="work">
+      <div class="section-head" data-reveal>
+        <p class="label">Selected Work</p>
+        <h2 class="section-title">Selected Projects</h2>
+        <p class="section-sub">From concept to verified drawing package — each project demonstrates engineering intent.</p>
+      </div>
+
+      <!-- TO EDIT: replace each card's link (href), image (src), tag and title. -->
+      <div class="projects-grid">
+        <a href="#" class="project-card featured" data-reveal>
+          <div class="card-img placeholder"><span>Featured render goes here</span></div>
+          <div class="card-body">
+            <span class="tag">SolidWorks · Assembly</span>
+            <h3>Featured Project Title</h3>
+            <span class="card-link">View Project →</span>
+          </div>
+        </a>
+        <a href="#" class="project-card" data-reveal>
+          <div class="card-img placeholder"><span>Project 02</span></div>
+          <div class="card-body"><span class="tag">Sheet Metal</span><h3>Project Title</h3><span class="card-link">View Project →</span></div>
+        </a>
+        <a href="#" class="project-card" data-reveal>
+          <div class="card-img placeholder"><span>Project 03</span></div>
+          <div class="card-body"><span class="tag">Weldment</span><h3>Project Title</h3><span class="card-link">View Project →</span></div>
+        </a>
+        <a href="#" class="project-card" data-reveal>
+          <div class="card-img placeholder"><span>Project 04</span></div>
+          <div class="card-body"><span class="tag">Drawing Package · GD&amp;T</span><h3>Project Title</h3><span class="card-link">View Project →</span></div>
+        </a>
+        <a href="#" class="project-card" data-reveal>
+          <div class="card-img placeholder"><span>Project 05</span></div>
+          <div class="card-body"><span class="tag">AutoCAD</span><h3>Project Title</h3><span class="card-link">View Project →</span></div>
+        </a>
+        <a href="#" class="project-card" data-reveal>
+          <div class="card-img placeholder"><span>Project 06</span></div>
+          <div class="card-body"><span class="tag">Part Modeling</span><h3>Project Title</h3><span class="card-link">View Project →</span></div>
+        </a>
+        <a href="#" class="project-card" data-reveal>
+          <div class="card-img placeholder"><span>Project 07</span></div>
+          <div class="card-body"><span class="tag">Medical Device</span><h3>Project Title</h3><span class="card-link">View Project →</span></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= 6. SKILLS ================= -->
+    <section class="section section-alt" id="skills">
+      <div class="section-head" data-reveal>
+        <p class="label">Capabilities</p>
+        <h2 class="section-title">Skills &amp; Tools</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-col" data-reveal>
+          <h4>CAD &amp; Modeling</h4>
+          <ul>
+            <li>SolidWorks</li><li>AutoCAD</li><li>Part modeling</li><li>Multi-body modeling</li><li>Revolve</li>
+            <li>Sweep</li><li>Loft</li><li>Shell</li><li>Patterns &amp; mirrors</li><li>Mass properties</li>
+          </ul>
+        </div>
+        <div class="skill-col" data-reveal>
+          <h4>Sheet Metal &amp; Weldments</h4>
+          <ul>
+            <li>Base &amp; edge flanges</li><li>Miter flanges</li><li>Bends &amp; reliefs</li><li>Flat patterns</li><li>K-factor</li>
+            <li>Bend allowance</li><li>Structural members</li><li>Trim/extend joints</li><li>Gussets &amp; end caps</li><li>Weldment cut lists</li>
+          </ul>
+        </div>
+        <div class="skill-col" data-reveal>
+          <h4>Drawings &amp; Documentation</h4>
+          <ul>
+            <li>Multi-view drawings</li><li>Section &amp; detail views</li><li>Isometric views</li><li>Title blocks</li><li>BOMs</li>
+            <li>Paper space</li><li>Plot to PDF</li><li>DIMSTYLE</li><li>Blueprint reading</li><li>Drawing packages</li>
+          </ul>
+        </div>
+        <div class="skill-col" data-reveal>
+          <h4>Standards &amp; Tolerancing</h4>
+          <ul>
+            <li>GD&amp;T</li><li>ASME Y14.5</li><li>Datum structures</li><li>Geometric callouts</li><li>Surface finish (Ra)</li>
+            <li>Third-angle projection</li><li>Tolerance stack-up</li><li>Fit &amp; clearance analysis</li><li>Weld symbols (AWS)</li>
+          </ul>
+        </div>
+        <div class="skill-col" data-reveal>
+          <h4>Quality &amp; Inspection</h4>
+          <ul>
+            <li>AS9100</li><li>ISO 9001</li><li>First Article Inspection (AS9102)</li><li>CMM</li><li>PC-DMIS</li>
+            <li>Precision metrology</li><li>Root cause analysis</li><li>CAPA</li><li>SPC</li><li>Design for Manufacturability</li>
+          </ul>
+        </div>
+        <div class="skill-col" data-reveal>
+          <h4>Supporting Tools</h4>
+          <ul>
+            <li>MATLAB</li><li>Simulink</li><li>Python</li><li>Excel (automation)</li><li>Minitab</li>
+            <li>KiCAD</li><li>Technical documentation</li><li>Cross-functional collaboration</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 7. HOW I WORK ================= -->
+    <section class="section" id="process">
+      <div class="section-head center" data-reveal>
+        <p class="label">Process</p>
+        <h2 class="section-title">How I Work</h2>
+      </div>
+      <div class="process">
+        <div class="process-line"><span id="processLine"></span></div>
+        <div class="step" data-step><div class="step-num">01</div><h4>Understand</h4><p>Requirements &amp; standards</p></div>
+        <div class="step" data-step><div class="step-num">02</div><h4>Design</h4><p>Concept &amp; CAD</p></div>
+        <div class="step" data-step><div class="step-num">03</div><h4>Engineer for Mfg</h4><p>DFM &amp; materials</p></div>
+        <div class="step" data-step><div class="step-num">04</div><h4>Document</h4><p>Drawing package</p></div>
+        <div class="step" data-step><div class="step-num">05</div><h4>Verify</h4><p>Inspection-ready</p></div>
+      </div>
+    </section>
+
+    <!-- ================= 8. INDUSTRIES ================= -->
+    <section class="section section-alt" id="industries">
+      <div class="section-head center" data-reveal>
+        <p class="label">Sectors</p>
+        <h2 class="section-title">Industries I Design For</h2>
+      </div>
+      <div class="industry-grid">
+        <div class="industry-card" data-reveal><span class="ind-num">01</span><h4>Aerospace</h4><p>Components and documentation built to AS9100 and FAA quality requirements</p></div>
+        <div class="industry-card" data-reveal><span class="ind-num">02</span><h4>Medical Devices</h4><p>Precision components built to biocompatibility and cleanability standards</p></div>
+        <div class="industry-card" data-reveal><span class="ind-num">03</span><h4>Industrial Manufacturing &amp; Robotics</h4><p>Machinery parts, frames, and automation components</p></div>
+        <div class="industry-card" data-reveal><span class="ind-num">04</span><h4>Automotive</h4><p>Engine, drivetrain, and mechanical assemblies</p></div>
+        <div class="industry-card" data-reveal><span class="ind-num">05</span><h4>Oil &amp; Gas / Energy</h4><p>Pressure-rated components and sealing assemblies to ASME standards</p></div>
+        <div class="industry-card" data-reveal><span class="ind-num">06</span><h4>Agricultural Equipment</h4><p>Durable, corrosion-resistant components for heavy-duty use</p></div>
+      </div>
+    </section>
+
+    <!-- ================= 9. FREELANCE ================= -->
+    <section class="section">
+      <div class="freelance" data-reveal>
+        <p class="label">Freelance</p>
+        <h3>Available for Freelance CAD &amp; Drafting Projects</h3>
+        <ul>
+          <li>3D Modeling &amp; Assemblies</li>
+          <li>2D Drawing Packages (GD&amp;T)</li>
+          <li>Design for Manufacturability Review</li>
+        </ul>
+        <p class="note">Clear, fixed-price deliverables. No project too small.</p>
+        <!-- TO EDIT: replace YOUR_EMAIL with your real email -->
+        <a href="mailto:YOUR_EMAIL?subject=Freelance%20CAD%20Project%20Inquiry" class="btn btn-outline">Get a Quote →</a>
+      </div>
+    </section>
+
+    <!-- ================= 10. CONTACT ================= -->
+    <section class="contact-wrap" id="contact">
+    <div class="contact-bg" aria-hidden="true"></div>
+    <div class="section contact">
+      <div class="contact-inner" data-reveal>
+        <h2 class="contact-headline"><span class="gold">Precision</span> Design. Built to Standard. <span class="gold">One</span> Conversation Away.</h2>
+        <p class="contact-sub">Stop searching through hundreds of under-qualified applicants. You just found an engineer who lives by AS9100 and GD&amp;T.</p>
+        <div class="badge"><span class="dot"></span> Currently Open: Full-Time &amp; Freelance</div>
+        <div class="contact-buttons">
+          <!-- TO EDIT: replace YOUR_EMAIL with your real email -->
+          <a href="mailto:YOUR_EMAIL?subject=Conversation%20from%20Portfolio" class="btn btn-gold">Start a Conversation →</a>
+          <a href="resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener">Download Résumé (PDF)</a>
+        </div>
+        <a href="mailto:YOUR_EMAIL" class="contact-email">YOUR_EMAIL</a>
+        <div class="chips center">
+          <span class="chip">SolidWorks</span><span class="chip">AutoCAD</span><span class="chip">AS9100</span><span class="chip">GD&amp;T</span><span class="chip">CMM</span>
+        </div>
+      </div>
+    </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> Adnan Mohammad</span>
+    <span>Wichita, Kansas</span>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <!-- Libraries (free, bundled in this folder): GSAP 3.12.5, ScrollTrigger, Three.js r128 -->
+  <script src="gsap.min.js"></script>
+  <script src="ScrollTrigger.min.js"></script>
+  <script src="three.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
