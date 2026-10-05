@@ -68,7 +68,7 @@
 
       // base grid
       ctx.lineWidth = 1;
-      ctx.strokeStyle = 'rgba(79,156,249,0.025)';
+      ctx.strokeStyle = 'rgba(245,166,35,0.025)';
       ctx.beginPath();
       for (var x = (w / 2) % GAP; x < w; x += GAP) { ctx.moveTo(x + .5, 0); ctx.lineTo(x + .5, h); }
       for (var y = 0; y < h; y += GAP) { ctx.moveTo(0, y + .5); ctx.lineTo(w, y + .5); }
@@ -105,8 +105,8 @@
       if (!reduceMotion) {
         var sy = ((t || 0) * 0.04) % (h + 200) - 100;
         var sg = ctx.createLinearGradient(0, sy - 60, 0, sy);
-        sg.addColorStop(0, 'rgba(79,156,249,0)');
-        sg.addColorStop(1, 'rgba(79,156,249,0.06)');
+        sg.addColorStop(0, 'rgba(245,166,35,0)');
+        sg.addColorStop(1, 'rgba(245,166,35,0.05)');
         ctx.fillStyle = sg; ctx.fillRect(0, sy - 60, w, 60);
       }
       requestAnimationFrame(draw);
@@ -141,16 +141,93 @@
       scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true } });
   }
 
-  /* ---------------- 4. STATEMENT BLUR REVEAL ---------------- */
-  (function statement() {
-    var el = document.getElementById('statementText');
-    var words = el.textContent.trim().split(/\s+/);
-    el.innerHTML = words.map(function (w) { return '<span class="w">' + w + '</span>'; }).join(' ');
+  /* ---------------- 4. ABOUT ME: WORD-BY-WORD BLUR REVEAL ----------------
+     Each word starts faded + blurred and sharpens as you scroll down.
+     Because it is scrubbed to the scrollbar, scrolling back up fades it out again. */
+  (function blurReveal() {
+    function splitWords(el) {               // wraps each word in a span, keeps <strong> gold styling
+      Array.prototype.slice.call(el.childNodes).forEach(function (node) {
+        if (node.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          node.textContent.split(/(\s+)/).forEach(function (part) {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
+            var sp = document.createElement('span'); sp.className = 'w'; sp.textContent = part; frag.appendChild(sp);
+          });
+          node.parentNode.replaceChild(frag, node);
+        } else if (node.nodeType === 1) { splitWords(node); }
+      });
+    }
+    var blocks = document.querySelectorAll('.blur-text');
+    blocks.forEach(splitWords);
     if (!hasGSAP || reduceMotion) return;
-    gsap.fromTo(el.querySelectorAll('.w'),
-      { opacity: 0.12, filter: 'blur(6px)' },
-      { opacity: 1, filter: 'blur(0px)', stagger: 0.05, ease: 'none',
-        scrollTrigger: { trigger: el, start: 'top 80%', end: 'bottom 45%', scrub: 1 } });
+    blocks.forEach(function (el) {
+      var big = el.classList.contains('about-lead');
+      gsap.fromTo(el.querySelectorAll('.w'),
+        { opacity: 0.06, filter: 'blur(10px)', y: big ? 16 : 8 },
+        { opacity: 1, filter: 'blur(0px)', y: 0, stagger: 0.04, ease: 'none',
+          scrollTrigger: { trigger: el, start: big ? 'top 85%' : 'top 88%', end: big ? 'bottom 55%' : 'bottom 62%', scrub: 1.2 } });
+    });
+  })();
+
+  /* ---------------- 4b. "hello" DRAWS ITSELF (scrubbed to scroll) ---------------- */
+  (function hello() {
+    var t = document.querySelector('#hello text');
+    if (!t || !hasGSAP || reduceMotion) return;
+    gsap.set(t, { strokeDashoffset: 2400, fill: 'rgba(245,166,35,0)' });
+    gsap.timeline({ scrollTrigger: { trigger: '#hello', start: 'top 88%', end: 'top 40%', scrub: 1 } })
+      .to(t, { strokeDashoffset: 0, ease: 'none', duration: 0.8 })
+      .to(t, { fill: 'rgba(245,166,35,1)', ease: 'none', duration: 0.25 }, '-=0.1');
+  })();
+
+  /* ---------------- 4c. EXPERIENCE: hover reveal is CSS; click expands ---------------- */
+  (function experience() {
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.exp-card'));
+    if (!cards.length) return;
+    var hasFlip = hasGSAP && typeof window.Flip !== 'undefined';
+    if (hasFlip) gsap.registerPlugin(Flip);
+
+    if (hasGSAP && !reduceMotion) {
+      gsap.set(cards, { opacity: 0, y: 30 });
+      ScrollTrigger.batch(cards, { start: 'top 90%', onEnter: function (b) {
+        gsap.to(b, { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out', clearProps: 'transform' });
+      } });
+    }
+
+    function toggle(card) {
+      var grid = card.parentElement;
+      var siblings = Array.prototype.slice.call(grid.children);
+      var opening = !card.classList.contains('is-open');
+      var state = hasFlip ? Flip.getState(siblings) : null;
+      siblings.forEach(function (c) { c.classList.remove('is-open'); c.setAttribute('aria-expanded', 'false'); });
+      if (opening) { card.classList.add('is-open'); card.setAttribute('aria-expanded', 'true'); }
+      grid.classList.toggle('has-open', opening);
+      grid.style.setProperty('--rest', Math.max(siblings.length - 1, 1));
+      if (hasFlip && !reduceMotion) {
+        Flip.from(state, { duration: 0.6, ease: 'power3.inOut', nested: true,
+          onComplete: function () { ScrollTrigger.refresh(); } });
+        if (opening) {
+          gsap.fromTo(card.querySelectorAll('.exp-detail li, .exp-tags'),
+            { opacity: 0, y: 12, filter: 'blur(6px)' },
+            { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.6, stagger: 0.07, delay: 0.3, ease: 'power2.out' });
+        }
+      } else if (hasGSAP) { ScrollTrigger.refresh(); }
+      if (opening) {
+        setTimeout(function () {
+          var r = card.getBoundingClientRect();
+          if (r.top < 70 || r.top > window.innerHeight * 0.6) window.scrollBy({ top: r.top - 90, behavior: 'smooth' });
+        }, 650);
+      }
+    }
+    cards.forEach(function (card) {
+      card.addEventListener('click', function (e) {
+        if (e.target.closest('a') || (window.getSelection && String(window.getSelection()).length)) return;
+        toggle(card);
+      });
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(card); }
+      });
+    });
   })();
 
   /* ---------------- 5. PROCESS LINE ---------------- */
@@ -187,7 +264,7 @@
     // ---- lighting: soft studio setup with a blue rim ----
     scene.add(new THREE.HemisphereLight(0xdfe8ff, 0x0a0c14, 0.75));
     var key = new THREE.DirectionalLight(0xffffff, 1.1); key.position.set(5, 8, 6); scene.add(key);
-    var rim = new THREE.DirectionalLight(0x4F9CF9, 0.9); rim.position.set(-6, 3, -6); scene.add(rim);
+    var rim = new THREE.DirectionalLight(0xF5A623, 0.7); rim.position.set(-6, 3, -6); scene.add(rim);
     var fill = new THREE.DirectionalLight(0xF5A623, 0.25); fill.position.set(-4, -3, 5); scene.add(fill);
 
     // ---- materials ----

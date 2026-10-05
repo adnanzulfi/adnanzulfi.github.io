@@ -13,7 +13,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Roboto:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Roboto:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Sacramento&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,11 +23,10 @@
     <a href="#top" class="nav-logo" aria-label="Back to top"><img src="logo.png" alt="Adnan Mohammad logo" width="54" height="37"><span class="nav-name">ADNAN<span>.</span>M</span></a>
     <nav class="nav-links" id="navLinks">
       <a href="#about">About</a>
-      <a href="#assembly">Assembly</a>
       <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#credentials">Credentials</a>
       <a href="#skills">Skills</a>
-      <a href="#process">Process</a>
-      <a href="#industries">Industries</a>
       <a href="#contact">Contact</a>
     </nav>
     <a href="resume.pdf" class="nav-cta" target="_blank" rel="noopener">Résumé</a>
@@ -59,17 +58,34 @@
         </div>
         <div class="hero-ctas" data-hero>
           <a href="resume.pdf" class="btn btn-gold" target="_blank" rel="noopener">Download Résumé (PDF)</a>
-          <a href="#assembly" class="btn btn-ghost">See my work ↓</a>
+          <a href="#work" class="btn btn-ghost">See my work ↓</a>
         </div>
       </div>
       <div class="scroll-cue" aria-hidden="true"><span></span></div>
     </section>
 
-    <!-- ================= 2. CREDENTIALS MARQUEE ================= -->
-    <section class="marquee" aria-label="Credentials">
+    <!-- ================= 2. ABOUT ME =================
+         "hello" draws itself in gold; every word then sharpens from a blur as you scroll
+         (and blurs back out if you scroll up). Gold words = <strong>. -->
+    <section class="about" id="about">
+      <h2 class="sr-only">About Me</h2>
+      <svg class="hello" id="hello" viewBox="0 0 520 190" aria-hidden="true">
+        <text x="50%" y="140" text-anchor="middle">hello</text>
+      </svg>
+      <p class="about-lead blur-text" id="statementText">
+        I turn engineering requirements into <strong>precise, manufacturable CAD</strong> — parts built to pass inspection the first time.
+      </p>
+      <div class="about-body">
+        <p class="blur-text">My edge comes from an unusual background: before I designed parts, I spent years inspecting them. Working inside <strong>AS9100</strong> and <strong>ISO 9001</strong> standards, running CMM inspections, and checking GD&amp;T on components with zero margin for error, I learned exactly where designs fail — the tolerance that won't hold, the feature that can't be machined, the drawing that doesn't survive the floor.</p>
+        <p class="blur-text">Now I design with that knowledge built in. Across <strong>SolidWorks</strong> and <strong>AutoCAD</strong>, I model sheet metal, weldments, assemblies, and full drawing packages — work that began with rehabilitation exoskeletons and a Class I surgical device in university, and has grown into a portfolio I build on every week.</p>
+        <p class="blur-text">Grounded in a <strong>Biomedical Engineering</strong> degree and real manufacturing experience, I bring something most designers can't: I understand both sides of the drawing. My goal is to grow into a CAD and mechanical design engineer who drives innovation — one precise design at a time.</p>
+      </div>
+    </section>
+
+    <!-- ================= 3. SKILLS STRIP (skills only, degree lives in Credentials) ================= -->
+    <section class="marquee" aria-label="Core skills">
       <div class="marquee-track">
         <div class="marquee-group">
-          <span>BS Biomedical Engineering · Wichita State</span><i>◆</i>
           <span>SolidWorks</span><i>◆</i>
           <span>AutoCAD</span><i>◆</i>
           <span>GD&amp;T · ASME Y14.5</span><i>◆</i>
@@ -77,10 +93,17 @@
           <span>ISO 9001</span><i>◆</i>
           <span>First Article Inspection · AS9102</span><i>◆</i>
           <span>CMM · PC-DMIS</span><i>◆</i>
+          <span>Sheet Metal</span><i>◆</i>
+          <span>Weldments</span><i>◆</i>
+          <span>Drawing Packages</span><i>◆</i>
+          <span>Tolerance Stack-Up</span><i>◆</i>
           <span>Design for Manufacturability</span><i>◆</i>
+          <span>Root Cause · CAPA</span><i>◆</i>
+          <span>SPC · Minitab</span><i>◆</i>
+          <span>MATLAB</span><i>◆</i>
+          <span>Python</span><i>◆</i>
         </div>
         <div class="marquee-group" aria-hidden="true">
-          <span>BS Biomedical Engineering · Wichita State</span><i>◆</i>
           <span>SolidWorks</span><i>◆</i>
           <span>AutoCAD</span><i>◆</i>
           <span>GD&amp;T · ASME Y14.5</span><i>◆</i>
@@ -88,12 +111,20 @@
           <span>ISO 9001</span><i>◆</i>
           <span>First Article Inspection · AS9102</span><i>◆</i>
           <span>CMM · PC-DMIS</span><i>◆</i>
+          <span>Sheet Metal</span><i>◆</i>
+          <span>Weldments</span><i>◆</i>
+          <span>Drawing Packages</span><i>◆</i>
+          <span>Tolerance Stack-Up</span><i>◆</i>
           <span>Design for Manufacturability</span><i>◆</i>
+          <span>Root Cause · CAPA</span><i>◆</i>
+          <span>SPC · Minitab</span><i>◆</i>
+          <span>MATLAB</span><i>◆</i>
+          <span>Python</span><i>◆</i>
         </div>
       </div>
     </section>
 
-    <!-- ================= 3. EXPLODED ASSEMBLY (pinned, scroll-scrubbed) ================= -->
+    <!-- ================= 4. EXPLODED ASSEMBLY (pinned, scroll-scrubbed) ================= -->
     <!-- DEMO MODEL: a pillow-block bearing built in code. Swap for your own SolidWorks export later. -->
     <section class="assembly" id="assembly">
       <div class="assembly-stage">
@@ -126,19 +157,6 @@
         </aside>
 
         <p class="assembly-fallback" id="assemblyFallback" hidden>3D view needs WebGL. Try a newer browser to see the exploded assembly.</p>
-      </div>
-    </section>
-
-    <!-- ================= 4. ABOUT ME (headline reveals word-by-word) ================= -->
-    <section class="statement" id="about">
-      <p class="label" data-reveal>About Me</p>
-      <p class="statement-text" id="statementText">
-        I turn engineering requirements into precise, manufacturable CAD — parts built to pass inspection the first time.
-      </p>
-      <div class="about-body">
-        <p data-reveal>My edge comes from an unusual background: before I designed parts, I spent years inspecting them. Working inside <strong>AS9100</strong> and <strong>ISO 9001</strong> standards, running CMM inspections, and checking GD&amp;T on components with zero margin for error, I learned exactly where designs fail — the tolerance that won't hold, the feature that can't be machined, the drawing that doesn't survive the floor.</p>
-        <p data-reveal>Now I design with that knowledge built in. Across <strong>SolidWorks</strong> and <strong>AutoCAD</strong>, I model sheet metal, weldments, assemblies, and full drawing packages — work that began with rehabilitation exoskeletons and a Class I surgical device in university, and has grown into a portfolio I build on every week.</p>
-        <p data-reveal>Grounded in a <strong>Biomedical Engineering</strong> degree and real manufacturing experience, I bring something most designers can't: I understand both sides of the drawing. My goal is to grow into a CAD and mechanical design engineer who drives innovation — one precise design at a time.</p>
       </div>
     </section>
 
@@ -185,6 +203,225 @@
           <div class="card-body"><span class="tag">Medical Device</span><h3>Project Title</h3><span class="card-link">View Project →</span></div>
         </a>
       </div>
+    </section>
+
+
+    <!-- ================= 6. EXPERIENCE =================
+         Hover a card: dates + headline numbers slide up. Click: card expands with full details.
+         Numbering restarts in each group. Newest first. -->
+    <section class="experience" id="experience">
+      <div class="exp-bg" aria-hidden="true"></div>
+      <div class="exp-inner">
+        <div class="exp-head" data-reveal>
+          <div>
+            <p class="label">Career</p>
+            <h2 class="exp-title-main">Experience</h2>
+          </div>
+          <p class="exp-sub">From the inspection floor to the design desk.</p>
+        </div>
+
+        <h3 class="exp-group" data-reveal>Professional</h3>
+        <div class="exp-grid cols-3">
+
+          <article class="exp-card" tabindex="0" role="button" aria-expanded="false">
+            <span class="exp-num">01</span>
+            <h4 class="exp-role">Quality Control Inspector</h4>
+            <p class="exp-org">Martin Interconnect Services · Wichita, KS</p>
+            <p class="exp-summary">Verified wiring harness and electro-mechanical builds for marine vessel applications against schematics and assembly drawings.</p>
+            <div class="exp-reveal">
+              <span class="exp-date">Sep 2023 – Jan 2024</span>
+              <div class="exp-metrics"><span>25% less rework</span><span>First Article Inspection</span></div>
+              <span class="exp-cta"><span class="when-closed"><span class="click">Click</span><span class="tap">Tap</span> to expand</span><span class="when-open">Close</span> <b>+</b></span>
+            </div>
+            <div class="exp-detail">
+              <ul>
+                <li>Interpreted and marked up electrical schematics, mechanical prints, and assembly drawings to verify wiring harness builds against design specification for marine vessel applications.</li>
+                <li>Performed in-process and final dimensional and functional inspection using calipers, micrometers, and multimeters, verifying conformance to waterproofing and safety requirements.</li>
+                <li>Authored non-conformance reports and escalated drawing discrepancies to engineering, driving corrective actions that reduced rework 25% and prevented defect escapes to downstream assembly.</li>
+                <li>Executed First Article Inspections verifying full conformance of electro-mechanical assemblies to design specification.</li>
+              </ul>
+              <div class="exp-tags"><span>Schematics</span><span>Assembly drawings</span><span>FAI</span><span>NCR</span><span>Calipers · Micrometers</span><span>Multimeter</span></div>
+            </div>
+          </article>
+
+          <article class="exp-card" tabindex="0" role="button" aria-expanded="false">
+            <span class="exp-num">02</span>
+            <h4 class="exp-role">Quality Engineer / Supervisor</h4>
+            <p class="exp-org">Etezazi Industries · Wichita, KS</p>
+            <p class="exp-summary">Led aerospace First Article Inspection for customers including Boeing and Spirit, verifying parts against GD&amp;T and native CATIA models.</p>
+            <div class="exp-reveal">
+              <span class="exp-date">Jan 2023 – Sep 2023</span>
+              <div class="exp-metrics"><span>$2.3M held value released</span><span>280+ parts approved</span><span>30% fewer repeat defects</span></div>
+              <span class="exp-cta"><span class="when-closed"><span class="click">Click</span><span class="tap">Tap</span> to expand</span><span class="when-open">Close</span> <b>+</b></span>
+            </div>
+            <div class="exp-detail">
+              <ul>
+                <li>Led First Article Inspections across multiple aerospace and manufacturing customers including Boeing and Spirit, authoring 20–25 AS9102 reports weekly against engineering drawings and GD&amp;T requirements.</li>
+                <li>Interrogated native CATIA models and 2D drawings to verify part features, datum structures, and GD&amp;T callouts against physical hardware; ballooned and marked up complete FAI drawing packages.</li>
+                <li>Communicated dimensional discrepancies and drawing ambiguities directly to design engineering, resolving print errors and tolerance conflicts before production release.</li>
+                <li>Performed full dimensional verification using CMM and PC-DMIS alongside calipers, micrometers, height gauges, bore gauges, thread gauges, and surface finish comparators; approved 280+ parts and cleared 80% of the disposition backlog in six months, releasing $2.3M in held value.</li>
+                <li>Conducted engineering root cause analysis and implemented CAPA plans using SPC and Minitab, driving a 30% reduction in repeat defects.</li>
+                <li>Led Lean and Six Sigma (DMAIC) projects, increasing production efficiency 20% and reducing scrap 15%.</li>
+                <li>Supervised inspection operations and managed tool calibration and lab equipment programs, improving equipment availability 25%.</li>
+              </ul>
+              <div class="exp-tags"><span>AS9102</span><span>GD&amp;T</span><span>CMM · PC-DMIS</span><span>CATIA</span><span>SPC · Minitab</span><span>Six Sigma · DMAIC</span><span>CAPA</span></div>
+            </div>
+          </article>
+
+          <article class="exp-card" tabindex="0" role="button" aria-expanded="false">
+            <span class="exp-num">03</span>
+            <h4 class="exp-role">Medical Devices Design Intern</h4>
+            <p class="exp-org">Worcester Polytechnic Institute · Worcester, MA</p>
+            <p class="exp-summary">Designed an orthopedic wearable with integrated infrared therapy for tibial bone healing, inside a formal design control process.</p>
+            <div class="exp-reveal">
+              <span class="exp-date">Jun 2021 – Jul 2021</span>
+              <div class="exp-metrics"><span>SolidWorks device model</span><span>Hazard analysis</span><span>Design history file</span></div>
+              <span class="exp-cta"><span class="when-closed"><span class="click">Click</span><span class="tap">Tap</span> to expand</span><span class="when-open">Close</span> <b>+</b></span>
+            </div>
+            <div class="exp-detail">
+              <ul>
+                <li>Modeled a functional 3D orthopedic wearable device with integrated infrared therapy in SolidWorks, selecting polymer materials for the device design, targeting accelerated tibial bone healing.</li>
+                <li>Performed hazard analysis on the device design, identifying and documenting potential failure conditions as part of the design control process.</li>
+                <li>Authored design history file documentation and co-presented the complete design control process to institute faculty within a distributed cross-functional design team.</li>
+              </ul>
+              <div class="exp-tags"><span>SolidWorks</span><span>Material selection</span><span>Design controls</span><span>Hazard analysis</span><span>DHF</span></div>
+            </div>
+          </article>
+        </div>
+
+        <h3 class="exp-group" data-reveal>Academic &amp; Research</h3>
+        <div class="exp-grid cols-2">
+
+          <article class="exp-card" tabindex="0" role="button" aria-expanded="false">
+            <span class="exp-num">01</span>
+            <h4 class="exp-role">3-DOF Rehabilitation Exoskeleton</h4>
+            <p class="exp-org">Biorobotics Lab · Wichita State University</p>
+            <p class="exp-summary">Led mechanical design of an upper-limb rehabilitation exoskeleton, from SolidWorks model to MATLAB-controlled actuation.</p>
+            <div class="exp-reveal">
+              <span class="exp-date">Fall 2021</span>
+              <div class="exp-metrics"><span>Led mechanical design</span><span>3 degrees of freedom</span></div>
+              <span class="exp-cta"><span class="when-closed"><span class="click">Click</span><span class="tap">Tap</span> to expand</span><span class="when-open">Close</span> <b>+</b></span>
+            </div>
+            <div class="exp-detail">
+              <ul>
+                <li>Led mechanical design for a three-degree-of-freedom upper-limb rehabilitation exoskeleton, modeling components in SolidWorks and producing fabrication drawings for the robotic hand assembly.</li>
+                <li>Investigated mechanical, electrical, sensory, computational, and signal processing control techniques for the rehabilitation system.</li>
+                <li>Designed the robotic system around 3 stepper motors and optical rotary encoders, controlled through an Arduino Mega with a V2 stepper motor shield and driver.</li>
+                <li>Used a motion capture system for joint angle data acquisition and Cortex software for position identification.</li>
+                <li>Controlled exoskeleton actuation in MATLAB through serial communication with the Arduino.</li>
+              </ul>
+              <div class="exp-tags"><span>SolidWorks</span><span>Fabrication drawings</span><span>MATLAB</span><span>Arduino</span><span>Motion capture</span></div>
+            </div>
+          </article>
+
+          <article class="exp-card" tabindex="0" role="button" aria-expanded="false">
+            <span class="exp-num">02</span>
+            <h4 class="exp-role">GoBabyGo! Adaptive Ride-On Vehicle</h4>
+            <p class="exp-org">Mechanical Team Designer · Wichita State University</p>
+            <p class="exp-summary">Adapted a ride-on vehicle for a child with Trisomy 13: custom seating, postural support, and speed control.</p>
+            <div class="exp-reveal">
+              <span class="exp-date">Fall 2021</span>
+              <div class="exp-metrics"><span>Custom-fit seating</span><span>Speed control circuit</span></div>
+              <span class="exp-cta"><span class="when-closed"><span class="click">Click</span><span class="tap">Tap</span> to expand</span><span class="when-open">Close</span> <b>+</b></span>
+            </div>
+            <div class="exp-detail">
+              <ul>
+                <li>Served as designer on the mechanical team for the adaptive redesign, contributing to the full SolidWorks model and producing files for laser-cut and machined components.</li>
+                <li>Designed ergonomic seating and postural support sized to the child through direct anthropometric fitting and iteration, and built custom speed control circuitry for the drive system.</li>
+                <li>Authored a complete build manual and troubleshooting guide for the family, translating the design into documentation for a non-technical audience.</li>
+              </ul>
+              <div class="exp-tags"><span>SolidWorks</span><span>Laser cutting</span><span>Machining</span><span>Ergonomics</span><span>Documentation</span></div>
+            </div>
+          </article>
+
+          <article class="exp-card" tabindex="0" role="button" aria-expanded="false">
+            <span class="exp-num">03</span>
+            <h4 class="exp-role">Tethered Surgical Sponge System</h4>
+            <p class="exp-org">Capstone Project · Wichita State University</p>
+            <p class="exp-summary">Led development of a Class I surgical safety device from concept through prototype.</p>
+            <div class="exp-reveal">
+              <span class="exp-date">Fall 2020 – Spring 2021</span>
+              <div class="exp-metrics"><span>3rd of 20+ teams</span><span>30% better retrieval</span></div>
+              <span class="exp-cta"><span class="when-closed"><span class="click">Click</span><span class="tap">Tap</span> to expand</span><span class="when-open">Close</span> <b>+</b></span>
+            </div>
+            <div class="exp-detail">
+              <ul>
+                <li>Placed third out of 20+ teams in the Shocker New Venture Competition, an investor-judged competition hosted by Wichita State's Center for Entrepreneurship.</li>
+                <li>Led development of a Class I surgical safety device from concept through prototype, modeling components in SolidWorks and producing dimensioned drawings for fabrication.</li>
+                <li>Fabricated the attachment component from CAD geometry and conducted benchtop efficacy testing, demonstrating a 30% improvement in material retrieval over standard practice.</li>
+                <li>Researched biocompatibility, sterilization methods, and FDA regulatory pathways for Class I medical devices, managing full lifecycle documentation including design specifications, test methods, and results analysis.</li>
+              </ul>
+              <div class="exp-tags"><span>SolidWorks</span><span>Prototyping</span><span>Benchtop testing</span><span>Biocompatibility</span><span>FDA Class I</span></div>
+            </div>
+          </article>
+
+          <article class="exp-card" tabindex="0" role="button" aria-expanded="false">
+            <span class="exp-num">04</span>
+            <h4 class="exp-role">Undergraduate Researcher</h4>
+            <p class="exp-org">Bio-Integrated Electronics &amp; Systems Lab · Wichita State</p>
+            <p class="exp-summary">Designed the housing and flexible PCB for a wireless fall-risk monitoring wearable.</p>
+            <div class="exp-reveal">
+              <span class="exp-date">Fall 2020 – Spring 2021</span>
+              <div class="exp-metrics"><span>Multi-layer flex PCB</span><span>Wearable housing</span></div>
+              <span class="exp-cta"><span class="when-closed"><span class="click">Click</span><span class="tap">Tap</span> to expand</span><span class="when-open">Close</span> <b>+</b></span>
+            </div>
+            <div class="exp-detail">
+              <ul>
+                <li>Designed and fabricated a multi-layer PCB for a smart, wireless flexible hybrid electronic (FHE) device, integrating sensors and microcontrollers on a flexible substrate for a fall-risk monitoring system.</li>
+                <li>Designed the wearable housing, form factor, mounting geometry, and substrate layout in SolidWorks.</li>
+                <li>Laid out a multi-layer flexible PCB in KiCAD integrating sensors and microcontrollers, producing schematics and design documentation for fabrication.</li>
+              </ul>
+              <div class="exp-tags"><span>SolidWorks</span><span>KiCAD</span><span>Flexible electronics</span><span>Wearables</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 7. CREDENTIALS ================= -->
+    <section class="section" id="credentials">
+      <div class="section-head" data-reveal>
+        <p class="label">Education &amp; Certifications</p>
+        <h2 class="section-title">The Credentials</h2>
+      </div>
+      <div class="cred-grid">
+        <article class="cred-card cred-main" data-reveal>
+          <div class="cred-body">
+          <span class="cred-kicker">Bachelor of Science</span>
+          <h3>Biomedical Engineering</h3>
+          <p class="cred-school">Wichita State University · Wichita, KS</p>
+          <div class="cred-honors"><span>Cum Laude</span><span>GPA 3.60</span><span>Dean's List &times; 3</span></div>
+          <dl class="cred-awards">
+            <div><dt>Dean's List</dt><dd>Fall 2020 · Spring 2021 · Fall 2021</dd></div>
+          </dl>
+          <p class="cred-note">Capstone, research, and design work: <a href="#experience">see Academic &amp; Research ↑</a></p>
+          </div>
+          <span class="cred-logo"><img src="wsu-logo.png" alt="Wichita State University" width="407" height="98"></span>
+        </article>
+        <article class="cred-card cred-side" data-reveal>
+          <div class="cred-body">
+          <span class="cred-kicker">Associate of Science</span>
+          <h3>Liberal Arts</h3>
+          <p class="cred-school">Butler Community College · 2018</p>
+          <div class="cred-honors"><span>GPA 3.70</span></div>
+          <dl class="cred-awards">
+            <div><dt>President's Honor Roll</dt><dd>Fall 2017</dd></div>
+            <div><dt>Dean's List</dt><dd>Spring 2017</dd></div>
+          </dl>
+          </div>
+          <span class="cred-logo cred-logo-sm"><img src="butler-logo.png" alt="Butler Community College" width="360" height="116"></span>
+        </article>
+      </div>
+
+      <!-- CERTIFICATIONS: hidden until earned. To show it, delete the word "hidden" below
+           and copy one <li> per certification.
+      <div class="cert-block" hidden>
+        <h3 class="exp-group">Certifications</h3>
+        <ul class="cert-list">
+          <li><strong>CSWA</strong> · Certified SolidWorks Associate · Dassault Systèmes · 2026 · <a href="VERIFY_LINK" target="_blank" rel="noopener">Verify ↗</a></li>
+        </ul>
+      </div>
+      -->
     </section>
 
     <!-- ================= 6. SKILLS ================= -->
@@ -247,11 +484,11 @@
       </div>
       <div class="process">
         <div class="process-line"><span id="processLine"></span></div>
-        <div class="step" data-step><div class="step-num">01</div><h4>Understand</h4><p>Requirements &amp; standards</p></div>
-        <div class="step" data-step><div class="step-num">02</div><h4>Design</h4><p>Concept &amp; CAD</p></div>
-        <div class="step" data-step><div class="step-num">03</div><h4>Engineer for Mfg</h4><p>DFM &amp; materials</p></div>
-        <div class="step" data-step><div class="step-num">04</div><h4>Document</h4><p>Drawing package</p></div>
-        <div class="step" data-step><div class="step-num">05</div><h4>Verify</h4><p>Inspection-ready</p></div>
+        <div class="step" data-step><div class="step-num" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1z"/><path d="M8.5 10h7M8.5 13.5h7M8.5 17h4"/></svg></div><h4>Understand</h4><p>Requirements &amp; standards</p></div>
+        <div class="step" data-step><div class="step-num" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1-4L16 5l3 3L8 19z"/><path d="M14 7l3 3"/><path d="M4 20l4-1"/></svg></div><h4>Design</h4><p>Concept &amp; CAD</p></div>
+        <div class="step" data-step><div class="step-num" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/><circle cx="12" cy="12" r="6.2"/></svg></div><h4>Engineer for Mfg</h4><p>DFM &amp; materials</p></div>
+        <div class="step" data-step><div class="step-num" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V4l16 16z"/><path d="M8 16v-4l4 4z"/><path d="M4 8h2M4 12h2"/></svg></div><h4>Document</h4><p>Drawing package</p></div>
+        <div class="step" data-step><div class="step-num" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M7.5 12.5l3 3 6-6.5"/></svg></div><h4>Verify</h4><p>Inspection-ready</p></div>
       </div>
     </section>
 
@@ -262,12 +499,11 @@
         <h2 class="section-title">Industries I Design For</h2>
       </div>
       <div class="industry-grid">
-        <div class="industry-card" data-reveal><span class="ind-num">01</span><h4>Aerospace</h4><p>Components and documentation built to AS9100 and FAA quality requirements</p></div>
-        <div class="industry-card" data-reveal><span class="ind-num">02</span><h4>Medical Devices</h4><p>Precision components built to biocompatibility and cleanability standards</p></div>
-        <div class="industry-card" data-reveal><span class="ind-num">03</span><h4>Industrial Manufacturing &amp; Robotics</h4><p>Machinery parts, frames, and automation components</p></div>
-        <div class="industry-card" data-reveal><span class="ind-num">04</span><h4>Automotive</h4><p>Engine, drivetrain, and mechanical assemblies</p></div>
-        <div class="industry-card" data-reveal><span class="ind-num">05</span><h4>Oil &amp; Gas / Energy</h4><p>Pressure-rated components and sealing assemblies to ASME standards</p></div>
-        <div class="industry-card" data-reveal><span class="ind-num">06</span><h4>Agricultural Equipment</h4><p>Durable, corrosion-resistant components for heavy-duty use</p></div>
+        <div class="industry-card" data-reveal><span class="ind-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 42V14h32v28"/><path d="M4 42h40"/><path d="M18 14V6h12v8"/><path d="M24 20v10M19 25h10"/><path d="M20 42v-7h8v7"/></svg></span><h4>Medical Devices</h4><p>Precision components built to biocompatibility and cleanability standards</p></div>
+        <div class="industry-card" data-reveal><span class="ind-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 42V22l10 6v-6l10 6v-6l10 6V8h6v34z"/><path d="M4 42h40"/><path d="M11 35h4M20 35h4M29 35h4"/><path d="M34 8V4M40 8V4"/></svg></span><h4>Industrial Manufacturing &amp; Robotics</h4><p>Machinery parts, frames, and automation components</p></div>
+        <div class="industry-card" data-reveal><span class="ind-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 32v-6l5-10h26l5 10v6z"/><path d="M11 16l-3 10h32l-3-10"/><circle cx="14" cy="34" r="4"/><circle cx="34" cy="34" r="4"/><path d="M6 32h4M18 32h12M38 32h4"/><path d="M24 16v10"/></svg></span><h4>Automotive</h4><p>Engine, drivetrain, and mechanical assemblies</p></div>
+        <div class="industry-card" data-reveal><span class="ind-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 42V8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v34"/><path d="M4 42h28"/><rect x="12" y="11" width="12" height="9" rx="1"/><path d="M28 16h4l6 6v14a3 3 0 0 1-6 0v-8h-4"/><path d="M38 22V12l-4-4"/><circle cx="18" cy="31" r="3"/></svg></span><h4>Oil &amp; Gas / Energy</h4><p>Pressure-rated components and sealing assemblies to ASME standards</p></div>
+        <div class="industry-card" data-reveal><span class="ind-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="32" r="9"/><circle cx="14" cy="32" r="3"/><circle cx="38" cy="36" r="5"/><path d="M8 23V10h14l4 13"/><path d="M22 10v13"/><path d="M23 32h10"/><path d="M26 23h14l2 9"/><path d="M34 23v-9"/></svg></span><h4>Agricultural Equipment</h4><p>Durable, corrosion-resistant components for heavy-duty use</p></div>
       </div>
     </section>
 
@@ -318,6 +554,7 @@
   <!-- Libraries (free, bundled in this folder): GSAP 3.12.5, ScrollTrigger, Three.js r128 -->
   <script src="gsap.min.js"></script>
   <script src="ScrollTrigger.min.js"></script>
+  <script src="Flip.min.js"></script>
   <script src="three.min.js"></script>
   <script src="main.js"></script>
 </body>
